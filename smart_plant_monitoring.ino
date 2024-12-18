@@ -80,6 +80,17 @@ void DHT11sensor() {
   lcd.print("% ");
 }
 
+void PIRsensor() {
+  bool value = digitalRead(PIR_PIN);
+  WidgetLED LED(V5);
+  if (value) {
+    Blynk.logEvent("pirmotion", "WARNING! Motion Detected!");
+    LED.on();
+  } else {
+    LED.off();
+  }
+}
+
 void soilMoistureSensor() {
   int soilValue = analogRead(SOIL_SENSOR_PIN);
   soilValue = map(soilValue, 0, 4095, 0, 100);
@@ -92,16 +103,7 @@ void soilMoistureSensor() {
   lcd.print("%   ");
 }
 
-void PIRsensor() {
-  bool value = digitalRead(PIR_PIN);
-  WidgetLED LED(V5);
-  if (value) {
-    Blynk.logEvent("pirmotion", "WARNING! Motion Detected!");
-    LED.on();
-  } else {
-    LED.off();
-  }
-}
+
 
 void checkPhysicalButton() {
   if (digitalRead(PUSH_BUTTON_PIN) == LOW) {
