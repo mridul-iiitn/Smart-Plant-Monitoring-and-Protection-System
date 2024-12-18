@@ -43,5 +43,3 @@ BLYNK_WRITE(VPIN_BUTTON_1): Controls the relay state based on input from the Bly
 Contributing
 Feel free to fork this repository, make improvements, and create pull requests. Contributions are welcome!
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
